@@ -34,18 +34,24 @@ class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md">
 
 <h1 class="text-2xl font-bold mb-2">TELUGU FANTASY</h1>
 
-<p class="text-green-600 text-sm font-semibold mb-1">
+<p class="text-green-600 text-sm font-semibold mb-3">
 🔥 <span id="memberCount">100000</span> Active Members
 </p>
+
+<!-- FIRST BUTTON -->
+<a href="https://t.me/+dHIhZ56W8chhYzg1"
+class="joinBtn block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 rounded-xl shadow-md transition active:scale-95 mb-4">
+JOIN TELEGRAM NOW
+</a>
 
 <p class="text-gray-600 text-sm mb-5">
 Daily exclusive fantasy updates. Limited access.
 </p>
 
+<!-- SECOND BUTTON -->
 <a href="https://t.me/+dHIhZ56W8chhYzg1"
-id="joinBtn"
-class="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 rounded-xl shadow-md transition active:scale-95">
-JOIN TELEGRAM NOW
+class="joinBtn block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg transition active:scale-95">
+JOIN CHANNEL IN TELEGRAM
 </a>
 
 <p class="text-[11px] text-gray-400 mt-4">
@@ -63,11 +69,13 @@ CONTACT FOR ADVERTISEMENT -
 
 <script>
 
-// Lead Event
-document.getElementById('joinBtn').addEventListener('click', function() {
+// Pixel Lead Event for both buttons
+document.querySelectorAll('.joinBtn').forEach(button => {
+button.addEventListener('click', function() {
 if (typeof fbq === 'function') {
 fbq('track', 'Lead');
 }
+});
 });
 
 // Realistic Live Counter
@@ -75,15 +83,13 @@ let count = 100000;
 const counter = document.getElementById("memberCount");
 
 function updateCounter() {
-    let change = Math.floor(Math.random() * 3) + 1;
-
-    if (Math.random() > 0.8) {
-        count -= 1; // sometimes decrease
-    } else {
-        count += change;
-    }
-
-    counter.innerText = count.toLocaleString();
+let change = Math.floor(Math.random() * 3) + 1;
+if (Math.random() > 0.8) {
+count -= 1;
+} else {
+count += change;
+}
+counter.innerText = count.toLocaleString();
 }
 
 setInterval(updateCounter, Math.floor(Math.random() * 3000) + 3000);
