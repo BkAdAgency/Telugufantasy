@@ -7,7 +7,7 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Meta Pixel -->
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s){
 if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,6 +21,7 @@ s.parentNode.insertBefore(t,s)}
 
 fbq('init', '892947739651696');
 fbq('track', 'PageView');
+fbq('track', 'ViewContent');
 </script>
 
 </head>
@@ -38,9 +39,10 @@ class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md">
 🔥 <span id="memberCount">100000</span> Active Members
 </p>
 
-<!-- SINGLE TELEGRAM BUTTON -->
-<a href="https://t.me/+dHIhZ56W8chhYzg1" target="_blank"
-class="joinBtn block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg transition active:scale-95 mb-4">
+<!-- TELEGRAM BUTTON WITH PIXEL TRACKING -->
+<a href="javascript:void(0);" 
+onclick="trackAndRedirect()" 
+class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg transition active:scale-95 mb-4">
 JOIN TELEGRAM NOW
 </a>
 
@@ -63,30 +65,33 @@ CONTACT FOR ADVERTISEMENT -
 
 <script>
 
-// Pixel Lead Event for button
-document.querySelectorAll('.joinBtn').forEach(button => {
-button.addEventListener('click', function() {
-if (typeof fbq === 'function') {
-fbq('track', 'Lead');
-}
-});
-});
+// Track Lead + Redirect
+function trackAndRedirect() {
 
-// Realistic Live Counter
+  fbq('track', 'Lead', {
+    content_name: 'Telegram Join',
+    value: 1,
+    currency: 'INR'
+  });
+
+  // Small delay to ensure pixel fires
+  setTimeout(function(){
+    window.location.href = "https://t.me/+dHIhZ56W8chhYzg1";
+  }, 500);
+}
+
+// Live Counter
 let count = 100000;
 const counter = document.getElementById("memberCount");
+counter.innerText = count.toLocaleString();
 
 function updateCounter() {
-let change = Math.floor(Math.random() * 3) + 1;
-if (Math.random() > 0.8) {
-count -= 1;
-} else {
-count += change;
-}
-counter.innerText = count.toLocaleString();
+  const change = Math.floor(Math.random() * 3) + 1;
+  count += change;
+  counter.innerText = count.toLocaleString();
 }
 
-setInterval(updateCounter, 4000);
+setInterval(updateCounter, 3000);
 
 </script>
 
