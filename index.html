@@ -19,10 +19,19 @@ s.parentNode.insertBefore(t,s)}
 (window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '892947739651696');
+fbq('init', '1899696617572528'); 
 fbq('track', 'PageView');
-fbq('track', 'ViewContent');
+
+fbq('track', 'ViewContent', {
+  content_name: 'Telugu Fantasy Landing Page'
+});
 </script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1899696617572528&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
 
 </head>
 
@@ -39,7 +48,6 @@ class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md">
 🔥 <span id="memberCount">100000</span> Active Members
 </p>
 
-<!-- TELEGRAM BUTTON WITH PIXEL TRACKING -->
 <a href="javascript:void(0);" 
 onclick="trackAndRedirect()" 
 class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg transition active:scale-95 mb-4">
@@ -65,19 +73,19 @@ CONTACT FOR ADVERTISEMENT -
 
 <script>
 
-// Track Lead + Redirect
+// Telegram Click Tracking + Redirect
 function trackAndRedirect() {
 
   fbq('track', 'Lead', {
-    content_name: 'Telegram Join',
-    value: 1,
+    content_name: 'Telegram Join Button',
+    value: 1.00,
     currency: 'INR'
   });
 
-  // Small delay to ensure pixel fires
+  // Delay for proper pixel fire
   setTimeout(function(){
     window.location.href = "https://t.me/+dHIhZ56W8chhYzg1";
-  }, 500);
+  }, 800);
 }
 
 // Live Counter
